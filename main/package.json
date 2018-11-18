@@ -11,9 +11,12 @@
     "@babel/preset-typescript": "^7.1.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
+    "immutable": "^4.0.0-rc.12",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-hot-loader": "^4.3.12",
+    "slate": "^0.44.6",
+    "slate-react": "^0.21.12",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"

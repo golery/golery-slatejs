@@ -1,33 +1,45 @@
-import React, { Component } from "react";
+// Import React!
+import React from 'react';
+import {Editor} from 'slate-react';
+import {Value} from 'slate';
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { counter: 0 };
-    }
+const initialValue = Value.fromJSON({
+    document: {
+        nodes: [
+            {
+                object: 'block',
+                type: 'paragraph',
+                nodes: [
+                    {
+                        object: 'text',
+                        leaves: [
+                            {
+                                text: 'A line of text in a paragraph.',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+});
 
-    componentDidMount() {
-        this.interval = setInterval(this.increment.bind(this), 1000);
-    }
+// Define our app...
+class App extends React.Component {
+    // Set the initial value when the app is first constructed.
+    state = {
+        value: initialValue,
+    };
 
-    increment() {
-        this.setState(({ counter }) => {
-            return { counter: counter + 1 };
-        });
-    }
+    // On change, update the app's React state with the new editor value.
+    onChange = ({value}) => {
+        this.setState({value})
+    };
 
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
+    // Render the editor.
     render() {
-        const { counter } = this.state;
-
-        return (
-            <header>
-                <div>Webpack is doing its thing with React and ES2040.</div>
-                <div>{counter}</div>
-            </header>
-        );
+        return <Editor value={this.state.value} onChange={this.onChange}/>
     }
 }
+
+export default App;
