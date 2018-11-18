@@ -4,16 +4,6 @@ var webpack = require('webpack');
 const config = {
     entry: [
         'react-hot-loader/patch',
-        //activate HMR for React
-
-        'webpack-dev-server/client?http://localhost:9000',
-        //bundle the client for webpack dev server
-        //and connect to the provided endpoint
-
-        'webpack/hot/only-dev-server',
-        //bundle the client for hot reloading
-        //only- means to only hot reload for successful updates
-
         "./index.js"
     ],
     context: __dirname,
@@ -72,12 +62,12 @@ const config = {
         hot: true
     },
     plugins: [
+        //prints more readable module names in the browser console on HMR updates
         new webpack.NamedModulesPlugin(),
 
         //activates HMR
         new webpack.HotModuleReplacementPlugin(),
 
-        //prints more readable module names in the browser console on HMR updates
         new webpack.NoEmitOnErrorsPlugin()
     ]
 };

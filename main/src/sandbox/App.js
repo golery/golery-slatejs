@@ -25,7 +25,7 @@ export default class App extends Component {
 
         return (
             <header>
-                <div>Webpack is doing its thing with React and ES2032.</div>
+                <div>Webpack is doing its thing with React and ES2040.</div>
                 <div>{counter}</div>
             </header>
         );
