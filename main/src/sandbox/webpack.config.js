@@ -72,9 +72,11 @@ const config = {
         hot: true
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        //activates HMR
         new webpack.NamedModulesPlugin(),
+
+        //activates HMR
+        new webpack.HotModuleReplacementPlugin(),
+
         //prints more readable module names in the browser console on HMR updates
         new webpack.NoEmitOnErrorsPlugin()
     ]
