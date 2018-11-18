@@ -5,19 +5,8 @@ const config = {
         path: __dirname + "/build",
         filename: "index.js",
         publicPath: "/",
-        library: 'GoleryEditor',
-        libraryTarget: 'umd',
-        // https://github.com/webpack/webpack/issues/6784
-        globalObject: 'typeof self !== \'undefined\' ? self : this'
     },
-    devtool: "source-map",
-    externals: {
-        "react": "react",
-        "react-dom": "react-dom",
-        "react-dom/server": "react-dom/server",
-        "lodash": "lodash",
-        "moment": "moment"
-    },
+    devtool: "eval-source-map",
     module: {
         rules: [
             {
