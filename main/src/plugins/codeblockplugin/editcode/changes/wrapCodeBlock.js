@@ -1,5 +1,5 @@
 // @flow
-import { type Change } from '@gitbook/slate';
+import { type Change } from 'slate';
 
 import type Options from '../options';
 
@@ -17,8 +17,9 @@ function wrapCodeBlock(opts: Options, change: Change): Change {
 
     // Move selection back in the block
     change
-        .collapseToStartOf(change.value.document.getDescendant(startBlock.key))
-        .moveOffsetsTo(selection.startOffset);
+        .moveToStartOfNode(change.value.document.getDescendant(startBlock.key))
+        .moveAnchorTo(startBlock.key, selection.startOffset)
+        .moveFocusTo(startBlock.key, selection.startOffset);
 
     return change;
 }

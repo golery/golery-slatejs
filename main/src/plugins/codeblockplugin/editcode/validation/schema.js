@@ -1,6 +1,6 @@
 // @flow
 
-import { Block, type Change, type Node } from '@gitbook/slate';
+import { Block, type Change, type Node } from 'slate';
 import {
     CHILD_TYPE_INVALID,
     CHILD_INVALID,
