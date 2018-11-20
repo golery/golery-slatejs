@@ -16,7 +16,5 @@ render();
  */
 
 if (module.hot) {
-    console.log("Accept App");
-    // module.hot.accept('./App', () => console.log('Reload'))
     module.hot.accept();
 }

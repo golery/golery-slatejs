@@ -16,7 +16,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 use: {
                     loader: "babel-loader"
                 },
@@ -50,11 +50,7 @@ const config = {
         ]
     },
     resolve: {
-        extensions: ["*", ".js", ".jsx"],
-        alias: {
-            // have shorter list of language for prism
-            "prismjs/components.json":  path.resolve(__dirname, 'src/components/codeblock/prism/components.json')
-        }
+        extensions: ["*", ".js", ".jsx", ".ts", ".tsx"]
     },
     devServer: {
         contentBase: __dirname,
