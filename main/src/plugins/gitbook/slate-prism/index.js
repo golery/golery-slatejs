@@ -138,7 +138,9 @@ function createDecoration({
         anchorOffset: start,
         focusKey: text.key,
         focusOffset: end,
-        marks: [{ type: 'prism-token', data: { className } }]
+        // GOLERYCHANGE
+        //marks: [{ type: 'prism-token', data: { className } }]
+        mark: { type: 'prism-token', data: { className } }
     };
 }
 
