@@ -6,7 +6,7 @@ import {AddCode, CodeBlockPlugin} from "../plugins/codeblockplugin/CodeBlockPlug
 import { ParagraphPlugin } from "@canner/slate-icon-shared";
 import 'antd/lib/select/style/index.css';
 import Toolbar from '../components/Toolbar';
-import EditPrism from "slate-prism";
+import EditPrism from "../plugins/gitbook/slate-prism";
 
 import Prism from 'prismjs';
 import PrismJava from 'prismjs/components/prism-java';
