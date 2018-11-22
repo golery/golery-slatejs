@@ -15,7 +15,8 @@ function onEnter(
     editor: *
 ): void | Change {
     const { value } = change;
-    if (!value.isCollapsed) {
+    // GOLERYCHANGE value.isCollapsed => value.selection.isCollapsed
+    if (!value.selection.isCollapsed) {
         return undefined;
     }
 

@@ -13,7 +13,8 @@ function getCurrentCode(opts: Options, value: Value, key?: string): ?Block {
     if (key) {
         currentBlock = value.document.getDescendant(key);
     } else {
-        if (!value.selection.startKey) return null;
+        // GOLERYCHANGE value.selection.startKey => start.key
+        if (!value.selection.start.key) return null;
         currentBlock = value.startBlock;
     }
 

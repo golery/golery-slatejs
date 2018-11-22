@@ -12,7 +12,7 @@ export default class Toolbar extends React.Component {
     }
 
     _onCode(e) {
-        let {editor, onChange} = this.props;
-        AddCode(e, editor, onChange);
+        let {getEditor, onChange} = this.props;
+        AddCode(e, getEditor(), onChange);
     }
 }

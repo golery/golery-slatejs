@@ -3,6 +3,7 @@ import * as React from 'react';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
 import {AddCode, CodeBlockPlugin} from "../plugins/codeblockplugin/CodeBlockPlugin";
+import EditCode from "../plugins/codeblockplugin/editcode/index";
 import { ParagraphPlugin } from "@canner/slate-icon-shared";
 import 'antd/lib/select/style/index.css';
 import Toolbar from '../components/Toolbar';
@@ -17,6 +18,7 @@ import PrismJsx from 'prismjs/components/prism-jsx';
 import PrismScss from 'prismjs/components/prism-scss';
 import PrismBash from 'prismjs/components/prism-bash';
 import PrismCsharp from 'prismjs/components/prism-csharp';
+import "prismjs/themes/prism.css";
 
 const initialValue = Value.fromJSON({
     document: {
@@ -40,7 +42,8 @@ const initialValue = Value.fromJSON({
 })
 
 type AppState = {
-    value: object
+    value: object,
+    editor: object
 }
 
 // let plugins = [
@@ -53,7 +56,11 @@ let plugins = [
         onlyIn: node => node.type === "code_block",
         getSyntax: node => node.data.get("syntax")
     }),
-    CodeBlockPlugin(null)];
+    EditCode({
+        onlyIn: node => node.type === "code_block"
+    }),
+    CodeBlockPlugin(null)
+];
 
 class App extends React.Component<void, AppState> {
     // Set the initial value when the app is first constructed.
@@ -69,16 +76,23 @@ class App extends React.Component<void, AppState> {
 
     editor: object;
 
-    ref = editor => {this.editor = editor};
+    ref = editor => {
+        console.log("Editor", editor);
+        this.editor = editor;
+    };
 
     // Render the editor.
     render() {
 
         return <div>
-            <Toolbar editor={this.editor} onChange={this.onChange}/>
+            <Toolbar getEditor={this._getEditor} onChange={this.onChange}/>
             <Editor value={this.state.value} onChange={this.onChange} plugins={plugins}
             ref={this.ref}/>
         </div>;
+    }
+
+    _getEditor= () => {
+        return this.editor;
     }
 }
 

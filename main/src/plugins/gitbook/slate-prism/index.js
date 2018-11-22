@@ -133,13 +133,26 @@ function createDecoration({
     start -= textStart;
     end -= textStart;
 
-    return {
+    // GOLERYCHANGE
+    /*return {
         anchorKey: text.key,
         anchorOffset: start,
         focusKey: text.key,
         focusOffset: end,
-        // GOLERYCHANGE
+
         //marks: [{ type: 'prism-token', data: { className } }]
+        mark: { type: 'prism-token', data: { className } }
+    };*/
+
+    return {
+        anchor: {
+            key: text.key,
+            offset: start,
+        },
+        focus: {
+            key: text.key,
+            offset: end,
+        },
         mark: { type: 'prism-token', data: { className } }
     };
 }

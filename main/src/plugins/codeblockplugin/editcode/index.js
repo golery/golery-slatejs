@@ -14,8 +14,16 @@ function EditCode(optsParam?: OptionsFormat = {}): Object {
     return {
         ...corePlugin,
 
-        onKeyDown: onKeyDown.bind(null, opts),
-        onPaste: onPaste.bind(null, opts)
+        onKeyDown: (event, change, next) => {
+            // GOLERYCHANGE
+            let result = onKeyDown.bind(null, opts)(event, change, change);
+            if (!result) next();
+        },
+        onPaste: (event, change, next) => {
+            // GOLERYCHANGE
+            let result = onPaste.bind(null, opts)(event, change, change);
+            if (!result) next();
+        },
     };
 }
 
