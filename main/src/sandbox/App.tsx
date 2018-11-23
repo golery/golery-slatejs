@@ -7,7 +7,6 @@ import { ParagraphPlugin } from "@canner/slate-icon-shared";
 import Toolbar from '../components/Toolbar';
 import SlatePrism from "golery-slate-prism";
 
-import 'antd/lib/select/style/index.css';
 
 import Prism from 'prismjs';
 import PrismJava from 'prismjs/components/prism-java';
@@ -18,7 +17,10 @@ import PrismJsx from 'prismjs/components/prism-jsx';
 import PrismScss from 'prismjs/components/prism-scss';
 import PrismBash from 'prismjs/components/prism-bash';
 import PrismCsharp from 'prismjs/components/prism-csharp';
+
+import 'antd/lib/select/style/index.css';
 import "prismjs/themes/prism.css";
+import './main.css';
 
 const initialValue = Value.fromJSON({
     document: {
@@ -81,8 +83,10 @@ class App extends React.Component<void, AppState> {
 
         return <div>
             <Toolbar getEditor={this._getEditor} onChange={this.onChange}/>
+            <div className="editor">
             <Editor value={this.state.value} onChange={this.onChange} plugins={plugins}
             ref={this.ref}/>
+            </div>
         </div>;
     }
 
