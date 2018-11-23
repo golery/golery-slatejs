@@ -1,6 +1,6 @@
 import React from "react";
 
-import {AddCode} from "../plugins/codeblockplugin/CodeBlockPlugin";
+import {toggleCode} from "../plugins/codeblockplugin/CodeBlockPlugin";
 
 export default class Toolbar extends React.Component {
     constructor(props) {
@@ -13,6 +13,6 @@ export default class Toolbar extends React.Component {
 
     _onCode(e) {
         let {getEditor, onChange} = this.props;
-        AddCode(e, getEditor(), onChange);
+        toggleCode(e, getEditor(), onChange, "javascript");
     }
 }

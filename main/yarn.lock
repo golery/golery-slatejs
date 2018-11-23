@@ -2881,6 +2881,11 @@ golery-slate-code-block@^0.16.0-golery.0:
     ends-with "^1.0.1"
     is-hotkey "^0.1.3"
 
+golery-slate-prism@^0.6.0-golery.0:
+  version "0.6.0-golery.0"
+  resolved "https://registry.yarnpkg.com/golery-slate-prism/-/golery-slate-prism-0.6.0-golery.0.tgz#fcea3554752dfbf6cd7830081383fbb0f5f0b438"
+  integrity sha512-ffRtXpdh7IV+3Z9cPNmBBmS/Lf1z+PHBR3kA6vV0FjE6IT0arb62gpcB5nkJpejCcE3rU5KlF1c/yKgztpJc9A==
+
 good-listener@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"

@@ -1,13 +1,13 @@
-// Import React!
 import * as React from 'react';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
-import {AddCode, CodeBlockPlugin} from "../plugins/codeblockplugin/CodeBlockPlugin";
-import EditCode from "golery-slate-code-block";
+import CodeBlockPlugin from "../plugins/codeblockplugin/CodeBlockPlugin";
+import SlateCodeBlock from "golery-slate-code-block";
 import { ParagraphPlugin } from "@canner/slate-icon-shared";
-import 'antd/lib/select/style/index.css';
 import Toolbar from '../components/Toolbar';
-import EditPrism from "../plugins/gitbook/slate-prism";
+import SlatePrism from "golery-slate-prism";
+
+import 'antd/lib/select/style/index.css';
 
 import Prism from 'prismjs';
 import PrismJava from 'prismjs/components/prism-java';
@@ -46,17 +46,12 @@ type AppState = {
     editor: object
 }
 
-// let plugins = [
-//     CodeBlockPlugin(),
-//     ParagraphPlugin(),
-// ];
-
 let plugins = [
-    EditPrism({
+    SlatePrism({
         onlyIn: node => node.type === "code_block",
         getSyntax: node => node.data.get("syntax")
     }),
-    EditCode({
+    SlateCodeBlock({
         onlyIn: node => node.type === "code_block"
     }),
     CodeBlockPlugin(null)

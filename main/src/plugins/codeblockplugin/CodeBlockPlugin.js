@@ -2,32 +2,7 @@ import PluginEditCode from "golery-slate-code-block";
 import { CODE, CODE_LINE, PARAGRAPH } from "@canner/slate-constant/lib/blocks";
 import {codeBlockNode, codeLineNode} from "@canner/slate-editor-renderer/lib/codeBlockNode";
 
-
-export function AddCode(e, change, onChange)
-{
-    let typeName = CODE;
-    let codePlugin = PluginEditCode({
-        onlyIn: node => node.type === typeName
-    });
-
-    //const { onChange, change, syntaxKey } = this.props;
-    let syntaxKey = "syntax";
-    let haveCodeBlock = codePlugin.utils.isInCodeBlock(change.value);
-    e.preventDefault();
-
-    if (haveCodeBlock) {
-        onChange(codePlugin.changes.unwrapCodeBlock(change, PARAGRAPH));
-    } else {
-        let lang = "javascript";
-        let newChange = change.setBlocks({
-            data: { [syntaxKey]: lang }
-        });
-
-        onChange(codePlugin.changes.wrapCodeBlock(newChange));
-    }
-}
-
-export const CodeBlockPlugin = opt => {
+const CodeBlockPlugin = opt => {
     const options = Object.assign(
         {
             codeType: CODE,
@@ -48,5 +23,29 @@ export const CodeBlockPlugin = opt => {
         }
     };
 };
+
+export default CodeBlockPlugin;
+
+export function toggleCode(e, change, onChange, language)
+{
+    let typeName = CODE;
+    let codePlugin = PluginEditCode({
+        onlyIn: node => node.type === typeName
+    });
+
+    let syntaxKey = "syntax";
+    let haveCodeBlock = codePlugin.utils.isInCodeBlock(change.value);
+    e.preventDefault();
+
+    if (haveCodeBlock) {
+        onChange(codePlugin.changes.unwrapCodeBlock(change, PARAGRAPH));
+    } else {
+        let newChange = change.setBlocks({
+            data: { [syntaxKey]: language }
+        });
+
+        onChange(codePlugin.changes.wrapCodeBlock(newChange));
+    }
+}
 
 
