@@ -8,10 +8,10 @@ export default class Toolbar extends React.Component {
     }
 
     render() {
-        return <div><button onClick={(e)=>this._onCode(e)}>Code</button></div>;
+        return <div><button onClick={(e)=>this._toggleCode(e)}>Code</button></div>;
     }
 
-    _onCode(e) {
+    _toggleCode(e) {
         let {getEditor, onChange} = this.props;
         toggleCode(e, getEditor(), onChange, "javascript");
     }
