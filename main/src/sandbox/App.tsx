@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Editor} from 'slate-react';
 import {Value} from 'slate';
 import {AddCode, CodeBlockPlugin} from "../plugins/codeblockplugin/CodeBlockPlugin";
-import EditCode from "../plugins/codeblockplugin/editcode/index";
+import EditCode from "golery-slate-code-block";
 import { ParagraphPlugin } from "@canner/slate-icon-shared";
 import 'antd/lib/select/style/index.css';
 import Toolbar from '../components/Toolbar';
