@@ -82,7 +82,7 @@ class App extends React.Component<void, AppState> {
     render() {
 
         return <div>
-            <Toolbar getEditor={this._getEditor} onChange={this.onChange}/>
+            <Toolbar getEditor={this._getEditor}/>
             <div className="editor">
             <Editor value={this.state.value} onChange={this.onChange} plugins={plugins}
             ref={this.ref}/>

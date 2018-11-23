@@ -12,7 +12,8 @@ export default class Toolbar extends React.Component {
     }
 
     _toggleCode(e) {
-        let {getEditor, onChange} = this.props;
-        toggleCode(e, getEditor(), onChange, "javascript");
+        let {getEditor} = this.props;
+        let editor = getEditor();
+        toggleCode(e, editor, editor.props.onChange, "javascript");
     }
 }
