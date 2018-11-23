@@ -41,6 +41,7 @@
     "@gitbook/slate-react": "^0.13.9-0",
     "@gitbook/slate-schema-violations": "^0.1.24-0",
     "antd": "^3.10.8",
+    "golery-slate-code-block": "^0.16.0-golery.0",
     "prismjs": "^1.15.0",
     "slate-edit-code": "^0.15.5",
     "slate-prism": "^0.5.0",
